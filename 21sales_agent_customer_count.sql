@@ -3,7 +3,7 @@ Employee full name
 Total number of customers assigned to each employee (even if it's zero)
 
 SELECT e.firstname AS EmFirstName, e.lastname AS EmLastName, Count(c.customerid) 
-FROM customer c
-JOIN employee e
-    ON e.EmployeeId = c.supportrepid
+FROM employee e
+LEFT JOIN Customer c
+    ON c.supportrepid = e.EmployeeId
 GROUP BY c.SupportRepId
